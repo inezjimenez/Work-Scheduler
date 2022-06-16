@@ -5,21 +5,41 @@
 * [General Information](#General-Information)
 * [Link to Website](#Link-to-Website)
 * [Technologies](#Technologies)
+* [Funtionality](#Funtionality)
 * [Project Demo](#Project-Demo)
-* [Time Blocks](#Time-Blocks)
 
 ### General Information
 
+The work day scheduler helps the user organize their workday by creating hour blocks the user can edit.
+
 ### Link to Website
+
+* Github:
+
+* Deployed:
 
 ### Technologies
 
-This project uses the following
+This project contains the following features
 
-* HTML - bootstrap
+* HTML
+* Bootstrap
 * CSS
-* JavaScript - jQuery, client-side APIs
+* JavaScript
+* jQuery
+
+### Funtionality
+
+* Once the planner is open, the current day and time is displayed at the top of the calendar.
+
+* When scrolling the page down, you are presented with time blocks for standard buisniess hours (9AM - 5PM).
+
+* Each time block is color-coded to indicate whether it is in the past, present, or future.
+
+* The user can click into a time block and enter an event.
+
+* When clicked on the save button, the text for that timed event is saved in local storage.
+
+* When the page iis refreshed, the saved events persist.
 
 ### Project Demo
-
-### Time Blocks
