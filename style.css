@@ -7,3 +7,24 @@ body {
 
     }
 }
+
+body {
+    font-size: 16px;
+    line-height: 1;
+}
+
+textarea {
+    background: rgb(139, 155, 116);
+    border: none;
+    resize: none;
+    color: #fff;
+    border-left: 1px solid #fff;
+    padding: 10px;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+    color: black;
+    border-radius: 0;
+}
