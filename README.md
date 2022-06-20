@@ -16,7 +16,7 @@ The work day scheduler helps the user organize their workday by creating hour bl
 
 * Github: https://github.com/inezjimenez/Work-Scheduler
 
-* Deployed:
+* Deployed: https://inezjimenez.github.io/Work-Scheduler/
 
 ### Technologies
 
