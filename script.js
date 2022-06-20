@@ -1,63 +1,79 @@
+$(document).ready(function() {
 
-var saveBtn = $(".saveBtn");
-
-/**
- * FUNCTIONS
- */
-
-// current day is displayed at the top of the calendar
-$("#currentDay").text(moment().format('dddd MMMM Do YYYY'));
-
-// each time block is color-coded to indicate whether it is in the past, present, or future
-function timeBlockColor() {
-    var hour = moment().hours();
-
-    $(".time-block").each(function() {
-        var currHour = parseInt($(this).attr("id"));
-
-        // console.log(this); //each time-block
-
-        if (currHour > hour) {
-            $(this).addClass("future");
-        } else if (currHour === hour) {
+// Adding current date to the jumbotron.
+$("#currentDay").text(moment().format("MMMM Do YYYY"));
+    
+    
+let description = $(".description");
+let saveButton = $(".saveBtn");
+let currentHour = moment().hour();
+    
+console.log(currentHour);
+console.log(typeof currentHour);
+    
+    
+// Color coding the time blocks using each and comparing the moment current time (currentHour) to the id attribute assigned to the textarea.
+description.each(function () {
+    let timeBlock = parseInt($(this).attr("id"));
+    
+    if (timeBlock === currentHour) {
             $(this).addClass("present");
-        } else {
+            $(this).removeClass("future");
+            $(this).removeClass("past");
+    }
+    else if (timeBlock < currentHour) {
             $(this).addClass("past");
-        }
-    })
-};
-
-// WHEN I click the save button for that time block
-saveBtn.on("click", function() {
-
-    // console.log(this); //save button
-    var time = $(this).siblings(".hour").text();
-    var plan = $(this).siblings(".plan").val();
-
-    // THEN the text for that event is saved in local storage
-    localStorage.setItem(time, plan);
+            $(this).removeClass("future");
+            $(this).removeClass("present");
+    }
+    else {
+            $(this).addClass("future");
+            $(this).removeClass("past");
+            $(this).removeClass("present");
+    }
 });
-
-// WHEN I refresh the page
-// THEN the saved events persist
-function usePlanner() {
-
-    $(".hour").each(function() {
-        var currHour = $(this).text();
-        var currPlan = localStorage.getItem(currHour);
-
-        // console.log(this);
-        // console.log(currHour);
-
-        if(currPlan !== null) {
-            $(this).siblings(".plan").val(currPlan);
+    
+// Using .each function in order to populate tasks that have been saved in local storage to the appropriate row upon loading the browser. 
+    
+description.each(function() {
+    
+    for (let i = 0; i < localStorage.length; i++) {
+        let objectKey = localStorage.key(i);
+        let taskValue = localStorage.getItem(objectKey);
+        let rowHour = $(this).siblings(".hour").text();
+            
+            console.log(rowHour);
+            console.log(typeof rowHour);
+            console.log(objectKey);
+            console.log(typeof objectKey);
+            console.log(taskValue);
+            console.log(typeof taskValue);
+           
+        if (objectKey === rowHour) {
+                $(this).val(taskValue);
         }
-    });
+           
+    }
+});
+    
+// Function to save task input once the save button is clicked. 
+function saveTasks () {
+    let currentTime = $(this).data("hour");
+    let rowHour = $(this).siblings(".hour").text();
+    let task = $(this).siblings(".description").val();
+    
+        console.log(currentTime);
+        console.log(rowHour);
+        console.log(task);
+    
+    if (task === "") {
+            localStorage.setItem(rowHour, "");
+    }
+    else {
+            localStorage.setItem(rowHour, task);
+    }
 }
-
-/**
- * CALL FUNCTIONS
- */
-
-timeBlockColor();
-usePlanner();
+    
+saveButton.on("click", saveTasks);
+    
+});
