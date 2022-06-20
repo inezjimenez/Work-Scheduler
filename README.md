@@ -27,6 +27,7 @@ This project contains the following features
 * CSS
 * JavaScript
 * jQuery
+* Moment.js
 
 ### Funtionality
 
