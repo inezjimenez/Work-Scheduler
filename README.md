@@ -43,3 +43,4 @@ This project contains the following features
 * When the page iis refreshed, the saved events persist.
 
 ### Project Demo
+![Work Day Scheduler](https://user-images.githubusercontent.com/102685046/174672293-0608baea-e95c-49c0-bdd0-13477db2356a.gif)
