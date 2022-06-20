@@ -1,14 +1,5 @@
 body {
     background-color: antiquewhite;
-}
-
-@media (max-width: 1199.98px) and (min-width:575.98px){
-    div.container {
-
-    }
-}
-
-body {
     font-size: 16px;
     line-height: 1;
 }
@@ -27,4 +18,54 @@ textarea {
     background-color: transparent;
     color: black;
     border-radius: 0;
+    border-bottom: 10px solid #88898C;
+}
+
+.description {
+    white-space: pre-wrap;
+}
+
+.time-block {
+    text-align: center;
+    border-radius: 15px;
+}
+
+.row {
+    white-space: pre-wrap;
+    height: 80px;
+    border-top: 1px solid white;
+}
+
+.hour {
+    background-color: #fff;
+    color: black;
+    border-top: 1px dashed #88898C;
+}
+
+.past {
+    background-color: aquamarine;
+    color:white;
+}
+
+.present {
+    background-color: blue;
+    color: white;
+}
+
+.future {
+    background-color: rgb(218, 136, 13);
+    color: white;
+}
+
+.saveBtn {
+    border: 1px solid #88898C;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: rgb(84, 140, 189);
+    color: white;
+}
+
+.saveBtn i:hover {
+    font-size: 25px;
+    transition: all 0.3s ease-in-out;
 }
